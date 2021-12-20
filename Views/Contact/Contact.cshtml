@@ -6,6 +6,7 @@
 <h2>Contact</h2>
 
 <div class="container">
+    <div class="search">search</div>
     <div class="table-wrapper">
 
         <table class="table table-striped table-hover">
@@ -17,6 +18,7 @@
                             <label for="selectAll"></label>
                         </span>
                     </th>
+                    <th>Id</th>
                     <th>Contact Name</th>
                     <th>Contact Number</th>
                     <th>Group Name</th>
@@ -34,14 +36,15 @@
                             <label for="checkbox1"></label>
                         </span>
                     </td>
+                    <td>@contact.Id</td>
                     <td>@contact.ContactName</td>
                     <td>@contact.ContactNumber </td>
                     <td>@contact.GroupName </td>
                     <td>@contact.HireDate </td>
                     <td>@contact.Birthday </td>
                     <td>
-                        <a style="color:blue" href="~/Contact/Edit/@contact.ContactName">Edit</a>
-                        <a style="padding-left: 2px;" onclick="return confirm('Are you sure?');" href="~/Contact/Delete/@contact.ContactName" class="text-danger">Delete</a>
+                        <a style="color:blue" href="~/Contact/Edit/@contact.Id">Edit</a>
+                        <a style="padding-left: 2px;" onclick="return confirm('Are you sure?');" href="~/Contact/Delete/@contact.Id" class="text-danger">Delete</a>
                     </td>
                     <td></td>
                 </tr>
