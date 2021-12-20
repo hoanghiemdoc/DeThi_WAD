@@ -33,7 +33,7 @@ namespace DeThi_WAD.Controllers
             var empquery = from x in context.Contacts select x;
             if (!string.IsNullOrEmpty(Empsearch))
             {
-                empquery = empquery.Where(x => x.ContactName.Contains(Empsearch) || x.ContactNumber.Contains(Empsearch));
+                empquery = empquery.Where(x => x.ContactName.Contains(Empsearch) || x.GroupName.Contains(Empsearch));
             }
 
             return View(await empquery.AsNoTracking().ToListAsync());

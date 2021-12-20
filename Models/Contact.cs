@@ -16,7 +16,7 @@ namespace DeThi_WAD.Models
         public string ContactName { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập so")]
-        public string ContactNumber { get; set; }
+        public int ContactNumber { get; set; }
 
         [Required(ErrorMessage = "Vui lòng nhập gropuName")]
         public string GroupName { get; set; }
