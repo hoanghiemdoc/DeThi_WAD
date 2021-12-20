@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using DeThi_WAD.Models;
+
 
 namespace DeThi_WAD.Controllers
 {
@@ -11,6 +14,8 @@ namespace DeThi_WAD.Controllers
         
     {
         private DataContext context = new DataContext();
+        private object db;
+
         // GET: Contact
         public ActionResult Contact()
         {
@@ -19,6 +24,21 @@ namespace DeThi_WAD.Controllers
             return View(list);  // parse sing model category
             
         }
+
+        // search form contact
+        [HttpGet]
+        public async Task<ActionResult> Contact(string Empsearch)
+        {
+            ViewData["Getemployeedetails"] = Empsearch;
+            var empquery = from x in context.Contacts select x;
+            if (!string.IsNullOrEmpty(Empsearch))
+            {
+                empquery = empquery.Where(x => x.ContactName.Contains(Empsearch) || x.ContactNumber.Contains(Empsearch) || x.GroupName.Contains(Empsearch)  || x.Birthday.Contains(Empsearch) || x.HireDate.Contains(Empsearch));
+            }
+
+            return View(await empquery.AsNoTracking().ToListAsync());
+        }
+
 
         public ActionResult Create()
         {
