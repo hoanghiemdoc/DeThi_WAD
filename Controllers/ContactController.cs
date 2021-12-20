@@ -43,12 +43,11 @@ namespace DeThi_WAD.Controllers
         public ActionResult Create()
         {
           
-
             return View();  // parse sing model category
 
         }
 
-
+        // create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Contact contact)
@@ -64,6 +63,7 @@ namespace DeThi_WAD.Controllers
             return View(contact);
         }
 
+        //edit
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -93,7 +93,7 @@ namespace DeThi_WAD.Controllers
             return View(contact);
         }
 
-
+        //delete
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -12,6 +12,7 @@ namespace DeThi_WAD.Models
 
         public int Id { get; set; }
 
+        // validate form
         [Required(ErrorMessage = "Vui lòng nhập ten")]
         public string ContactName { get; set; }
 
